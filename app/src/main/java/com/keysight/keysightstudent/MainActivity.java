@@ -32,32 +32,7 @@ public class MainActivity extends FragmentActivity
         setContentView(R.layout.activity_main);
         init_navigation();
         init_fragment();
-
-
     }
-
-    protected void init_navigation() {
-        drawer = findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView = findViewById(R.id.navigation);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    protected void init_fragment() {
-        Fragment fragment = new Fragment();
-        fragment.setArguments(getIntent().getExtras());
-        fragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit();
-        try {
-            fragment = HomeFragment.class.newInstance();
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
-    }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -106,4 +81,25 @@ public class MainActivity extends FragmentActivity
         }
     }
 
+    protected void init_navigation() {
+        drawer = findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView = findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    protected void init_fragment() {
+        Fragment fragment = new Fragment();
+        fragment.setArguments(getIntent().getExtras());
+        fragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit();
+        try {
+            fragment = HomeFragment.class.newInstance();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    }
 }
