@@ -7,4 +7,8 @@
     <string name="title_blog">Blog</string>
     <string name="title_about">About</string>
     <string name="title_edu">Education</string>
+    <string name="sends_them_to_the_keysight_website">Sends them to the keysight website</string>
+    <string name="product_name">Product Name</string>
+    <string name="error_occured">Error Occurred</string>
+    <string name="txt_image_slider">txt_image_slider</string>
 </resources>
